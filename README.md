@@ -7,3 +7,17 @@ Folder Structure
 5.  database > seesder > insert Dataset
 6.  database > factories > create sample datas
 7.  RouterServiceProvider > we can create URL directions
+
+Laravel Jetstream UI Auth
+
+create all the functions in services
+and using throught facade
+
+Use Facades for improve the security
+create facede
+create folder name
+
+1. main folder
+2. Facade Folder -> Bridge as a Data Tranfer
+3. Services Folder -> All the actions happening
+4. update composer.json -> inside autoload -> "domain\\": "domain/" composer dump-autoload

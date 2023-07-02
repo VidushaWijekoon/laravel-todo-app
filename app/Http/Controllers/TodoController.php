@@ -2,41 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Todo;
+use domain\Facades\TodoFacade;
 use Illuminate\Http\Request;
 
-class TodoController extends Controller
+class TodoController extends ParentController
 {
-
-    protected $task;
-
-    public function __construct()
-    {
-        $this->task = new Todo;
-    }
     public function index()
     {
-        $response['tasks'] = $this->task->all();
+        $response['tasks'] = TodoFacade::all();
         return view('pages.todo.index')->with($response);
     }
+
     public function store(Request $request)
     {
-        $this->task->create($request->all());
-        return redirect()->back()->with('message', 'Task Add Succefully');
+        TodoFacade::store($request->all());
+        return redirect()->back()->with('message', 'Todo List Created Successfully');
     }
 
-    public function done($task_id)
+    public function done($task)
     {
-        $task = $this->task->findOrFail($task_id);
-        $task->done = 1;
-        $task->update();
-        return redirect()->back()->with('message', 'Task has Been Update Successfully');
+        TodoFacade::done($task);
+        return redirect()->back()->with('message', 'Todo List has benn Updated');
     }
 
-    public function delete($task_id)
+    public function delete(int $task_id)
     {
-        $task = $this->task->findOrFail($task_id);
-        $task->delete();
-        return redirect()->back()->with('message', 'Task has Been Deleted');
+        TodoFacade::delete($task_id);
+        return redirect()->back()->with('message', 'Todo List Deleted');
     }
 }

@@ -14,10 +14,27 @@
                     <a class="nav-link" href="{{ route('todo') }}">Todo</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <!-- Authentication -->
+            @if (Auth()->user())
+            <a class="mx-2" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out mx-2"></i>{{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
             </form>
+            @else
+            <span><a href="{{ route('login') }}" class="mx-2">Login</a></span>
+            <span><a href="{{ route('login') }}" class="mx-2">Register</a></span>
+            @endif
         </div>
     </div>
 </nav>
+
+<style>
+    a {
+        text-decoration: none;
+        color: rgb(116, 29, 8)
+    }
+</style>

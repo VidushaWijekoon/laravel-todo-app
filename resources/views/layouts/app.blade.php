@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Todo List</title>
     @include('libraries.styles')
+    @livewireStyles
 </head>
 
 <body>
@@ -16,6 +17,7 @@
 
     @include('components.footer')
     @include('libraries.scripts')
+    @livewireScripts
 </body>
 
 </html>
