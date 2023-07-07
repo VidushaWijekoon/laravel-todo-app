@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('todo') }}">Todo</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('banner') }}">Banner</a>
+                </li>
             </ul>
             <!-- Authentication -->
             @if (Auth()->user())
