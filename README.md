@@ -21,3 +21,18 @@ create folder name
 2. Facade Folder -> Bridge as a Data Tranfer
 3. Services Folder -> All the actions happening
 4. update composer.json -> inside autoload -> "domain\\": "domain/" composer dump-autoload
+
+Laravel API
+
+Create API php artisan make:controller API/TodoController --api
+postman
+create
+body accept - application/json -> row change into json
+
+relationship
+
+seeders
+only can create limited
+
+fakers
+usefull for testing purpose

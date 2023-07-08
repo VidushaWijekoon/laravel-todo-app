@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('banner') }}">Banner</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/relationship') }}">Relationship</a>
+                </li>
             </ul>
             <!-- Authentication -->
             @if (Auth()->user())

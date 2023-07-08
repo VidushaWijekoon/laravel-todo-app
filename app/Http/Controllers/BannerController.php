@@ -22,24 +22,22 @@ class BannerController extends ParentController
 
         $banner = $banner->create([
             'title' => $validatedData['title'],
-            'image_id' => $validatedData['image_id'],
         ]);
 
 
         if ($banner->id) {
             $imageLocation = new Image;
-            if ($request->hasFile('title_image')) {
-                $uploadPath = 'uploads/posts/title_image/';
+            if ($request->hasFile('image')) {
+                $uploadPath = 'uploads/posts/image/';
 
-                $file = $request->file('title_image');
+                $file = $request->file('image');
                 $ext = $file->getClientOriginalExtension();
+
                 $filename = time() . '.' . $ext;
-
                 $file->move($uploadPath, $filename);
-                $finalVideoPath = $uploadPath .  $filename;
-
-                $banner->imageLocation()->create([
-                    'name' => $banner->id,
+                $imageLocation->image = $uploadPath . $filename;
+                $imageLocation->create([
+                    'name' => $imageLocation,
                 ]);
             }
         }
